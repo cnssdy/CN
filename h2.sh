@@ -4,13 +4,12 @@ bold=$(tput bold)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
-echo "${bold}${green}**************************************************************${reset}"
 echo "${bold}${green}**欢迎使用CN脚本***${reset}"
 read -p "按 Enter 键继续..."
 
 #应要求添加URI再显示功能
 
-read -p "重新部署Hysteria2请输入1；显示配置URI请输入2: " USER_PURPOSE
+read -p "安装Hysteria2请输入1；显示URI请输入2: " USER_PURPOSE
 
 #移除dpkg锁，虽然这不是必要的，但有时候又是必要的
 
@@ -47,7 +46,7 @@ if [ "$USER_PURPOSE" == "1" ]; then
   read -p "请输入希望Hysteria2监听的端口（默认为443）: " LISTEN_PORT
   LISTEN_PORT=${LISTEN_PORT:-"443"}
 
-  read -p "是否开启端口跳跃？输入 1（默认关闭）或 2（开启）: " PORT_HOPPING
+  read -p "是否开启端口跳跃？输入 1（关闭）或 2（默认开启）: " PORT_HOPPING
   PORT_HOPPING=${PORT_HOPPING:-"2"}
 
   DEFAULT_INTERFACE=$(ip route | awk '/^default/ {print $5}')
@@ -63,7 +62,7 @@ if [ "$USER_PURPOSE" == "1" ]; then
         exit 1
       fi
     fi
-    read -p "请输入希望开启的端口段（默认为5000-6000）: " PORT_HOPPING_RANGE
+    read -p "请输入希望开启的端口段（默认为50000-60000）: " PORT_HOPPING_RANGE
     PORT_HOPPING_RANGE=${PORT_HOPPING_RANGE:-"50000-60000"}
 
     PORT_RANGE_FORMATTED=$(echo "$PORT_HOPPING_RANGE" | sed 's/-/:/')
@@ -257,7 +256,7 @@ if [ "$USER_PURPOSE" == "1" ]; then
     echo "未找到Hysteria配置文件：$HYSTERIA_CONFIG_FILE"
     echo "请检查文件路径是否正确，并确保Hysteria服务已安装和配置。"
   fi
-  echo "${bold}${green}如您遇到使用问题，请加入t.me/IDGG6电报${reset}"
+  echo "${bold}${green}如您遇到使用问题，请添加t.me/IDGG6    ${reset}"
 
 elif [ "$USER_PURPOSE" == "2" ]; then
 
