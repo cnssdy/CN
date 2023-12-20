@@ -233,7 +233,7 @@ switch_provider(){
 
 menu() {
     clear
-    echo -e "#                   ${RED}SSL 一键脚本${PLAIN}                  #"
+    echo -e "#         ${RED}SSL 一键脚本${PLAIN}                  #"
     echo " -------------"
     echo -e " ${GREEN}1.${PLAIN} 安装 Acme.sh 域名证书申请脚本"
     echo -e " ${GREEN}2.${PLAIN} ${RED}卸载 Acme.sh 域名证书申请脚本${PLAIN}"
