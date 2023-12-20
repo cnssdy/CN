@@ -185,6 +185,11 @@ acme_cfapiTLD(){
     checktls
 }
 
+view_cert(){
+    [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]] && inst_acme
+    bash ~/.acme.sh/acme.sh --list
+}
+
 revoke_cert() {
     [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]] && inst_acme
 
