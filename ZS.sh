@@ -220,9 +220,9 @@ switch_provider(){
 
     yellow "请选择证书提供商, 默认 Let证书 "
     yellow "证书申请失败, 可切换 BuyPass 或 ZeroSSL 来申请."
-    echo -e " ${GREEN}1.${PLAIN} Let SSL ${YELLOW}(默认)${PLAIN}"
-    echo -e " ${GREEN}2.${PLAIN} BuyPass"
-    echo -e " ${GREEN}3.${PLAIN} ZeroSSL"
+    echo -e " ${GREEN}1.${PLAIN} Letsencrypt.org ${YELLOW}(默认)${PLAIN}"
+    echo -e " ${GREEN}2.${PLAIN} BuyPass.com"
+    echo -e " ${GREEN}3.${PLAIN} ZeroSSL.com"
     read -rp "请选择证书提供商 [1-3]: " provider
     case $provider in
         2) bash ~/.acme.sh/acme.sh --set-default-ca --server buypass && green "切换证书 BuyPass 成功！" ;;
